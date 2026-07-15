@@ -1,0 +1,212 @@
+/* ==========================================
+   ESTILOS DE TUTORÍAS ACADÉMICAS
+   ========================================== */
+
+/* Grid de Tutores */
+.tutors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Tarjeta de Tutor */
+.tutor-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  height: 100%;
+}
+
+.tutor-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.tutor-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.tutor-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: 3px solid white;
+  box-shadow: var(--shadow-md);
+}
+
+.tutor-status {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background-color: var(--verde);
+  border: 2px solid white;
+  box-shadow: var(--shadow-sm);
+}
+
+.tutor-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tutor-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--negro);
+}
+
+.tutor-career {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--azul-claro);
+  margin-top: 0.1rem;
+}
+
+.tutor-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.3rem;
+}
+
+.tutor-rating i {
+  color: #eab308;
+  font-size: 0.8rem;
+}
+
+.tutor-rating span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gris-oscuro);
+  margin-left: 0.2rem;
+}
+
+/* Cursos dominados (Tags) */
+.tutor-body {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.tutor-section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gris-medio);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.tutor-courses-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.course-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  background-color: var(--gris-ultra-claro);
+  color: var(--negro);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gris-claro);
+  transition: var(--transition-fast);
+}
+
+.course-tag:hover {
+  background-color: var(--azul-claro-transparente);
+  color: var(--azul);
+  border-color: rgba(42, 116, 185, 0.2);
+}
+
+/* Precios y pie de tutor */
+.tutor-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--gris-ultra-claro);
+  margin-top: auto;
+  gap: 1rem;
+}
+
+.tutor-price {
+  display: flex;
+  flex-direction: column;
+}
+
+.tutor-price-value {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--negro);
+}
+
+.tutor-price-unit {
+  font-size: 0.7rem;
+  color: var(--gris-medio);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.tutor-footer .btn-contact {
+  flex-grow: 1;
+  max-width: 140px;
+}
+
+/* Tutor Contact Modal details */
+.modal-tutor-profile {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--gris-ultra-claro);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gris-claro);
+  margin-bottom: 1.5rem;
+}
+
+.modal-tutor-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.modal-tutor-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-tutor-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.modal-tutor-meta {
+  font-size: 0.82rem;
+  color: var(--gris-oscuro);
+}

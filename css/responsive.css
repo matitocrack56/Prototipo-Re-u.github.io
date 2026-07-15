@@ -1,0 +1,193 @@
+/* ==========================================
+   DISEÑO RESPONSIVO & COMPATIBILIDAD MÓVIL
+   ========================================== */
+
+/* Tabletas y Laptops Pequeñas (Pantallas de menos de 1024px) */
+@media (max-width: 1024px) {
+  /* Layout */
+  .sidebar {
+    left: -280px; /* Esconde el menú a la izquierda */
+    box-shadow: 10px 0 30px rgba(15, 23, 42, 0.15);
+  }
+
+  .sidebar.active {
+    left: 0; /* Desliza hacia adentro */
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+
+  /* Hamburger Toggle */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background-color: var(--blanco);
+    border: 1px solid var(--gris-claro);
+    color: var(--negro);
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+  }
+
+  .mobile-menu-btn:hover {
+    background-color: var(--gris-ultra-claro);
+    color: var(--azul);
+  }
+
+  /* Grids de contenido */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .documents-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tutors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filter-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .filter-grid .btn-reset-filters {
+    grid-column: span 2;
+    width: 100%;
+  }
+}
+
+/* Celulares grandes (Pantallas de menos de 768px) */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header-search {
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  .header-search input:focus {
+    width: 100%;
+  }
+
+  /* Grids */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .quick-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .quick-card {
+    height: auto;
+    padding: 1.75rem;
+  }
+
+  .dashboard-details-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .documents-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tutors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-grid .btn-reset-filters {
+    grid-column: span 1;
+  }
+
+  .module-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  .module-header .btn {
+    width: 100%;
+  }
+
+  .modal-container {
+    width: 95%;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Celulares Pequeños (menos de 480px) */
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-body {
+    padding: 1.25rem;
+  }
+
+  .modal-header, .modal-footer {
+    padding: 1rem 1.25rem;
+  }
+}
+
+/* Overlay para oscurecer la pantalla cuando el sidebar móvil está abierto */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 90;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}

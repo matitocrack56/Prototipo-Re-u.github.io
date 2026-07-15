@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Re-U | Tutorías Académicas</title>
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/tutoring.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+  <body>
+    <div class="app-container" id="app-root">
+      
+      <!-- Menú Lateral (Sidebar) -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <div class="logo-icon">R</div>
+          <h1 class="logo-text">Re-<span>U</span></h1>
+        </div>
+        
+        <nav class="sidebar-nav">
+          <a href="../index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Inicio</span>
+          </a>
+          <a href="./repository.html" class="nav-item">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Repositorio</span>
+          </a>
+          <a href="./marketplace.html" class="nav-item">
+            <i class="fa-solid fa-store"></i>
+            <span>Marketplace</span>
+          </a>
+          <a href="./tutoring.html" class="nav-item active">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>Tutorías</span>
+          </a>
+          <a href="./profile.html" class="nav-item">
+            <i class="fa-solid fa-user"></i>
+            <span>Perfil</span>
+          </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+          <div class="user-profile-summary">
+            <div class="user-avatar-mini">MA</div>
+            <div class="user-info-mini">
+              <span class="user-name">Miguel Alva</span>
+              <span class="user-role">Ing. de Sistemas</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Overlay para responsive móvil -->
+      <div class="sidebar-overlay"></div>
+
+      <!-- Contenido Principal -->
+      <main class="main-content">
+        
+        <!-- Cabecera Superior -->
+        <header class="main-header reveal-on-scroll active">
+          <!-- Hamburguesa móvil -->
+          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir Menú">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          
+          <div class="header-title-area">
+            <h1>Tutorías y Asesorías</h1>
+            <p>Conéctate con estudiantes destacados y profesores especializados para resolver tus dudas.</p>
+          </div>
+          
+          <div class="header-actions">
+            <button class="icon-badge-btn" aria-label="Notificaciones">
+              <i class="fa-regular fa-bell"></i>
+            </button>
+          </div>
+        </header>
+
+        <!-- Cabecera del Módulo con Acción Directa -->
+        <div class="module-header reveal-on-scroll active">
+          <div class="module-info">
+            <h2>¿Destacas en algún curso?</h2>
+            <p>Únete como tutor en Re-U, enseña a tus compañeros en tus horas libres y genera ingresos adicionales.</p>
+          </div>
+          <a href="./profile.html?action=new-tutor" class="btn btn-primary">
+            <i class="fa-solid fa-user-plus"></i> Registrarme como Tutor
+          </a>
+        </div>
+
+        <!-- Panel de Filtros de Tutores -->
+        <section class="filter-panel reveal-on-scroll active">
+          <div class="filter-grid" style="grid-template-columns: 2fr repeat(2, 1fr) auto;">
+            <div class="filter-group">
+              <label for="search-tutor-course">Especialidad o Curso</label>
+              <div class="search-input-wrapper">
+                <input type="text" id="search-tutor-course" class="form-control" placeholder="Ej. Estructuras, Cálculo II, Termodinámica..." />
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-tutor-carrera">Carrera / Facultad</label>
+              <select id="filter-tutor-carrera" class="filter-control">
+                <option value="Todos">Todas las áreas</option>
+                <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
+                <option value="Ingeniería Civil">Ingeniería Civil</option>
+                <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-tutor-precio">Precio por hora</label>
+              <select id="filter-tutor-precio" class="filter-control">
+                <option value="Todos">Cualquier tarifa</option>
+                <option value="bajo">Económico (S/. 25 o menos)</option>
+                <option value="medio">Estándar (S/. 26 - S/. 35)</option>
+                <option value="alto">Premium (Más de S/. 35)</option>
+              </select>
+            </div>
+
+            <button class="btn-reset-filters" id="btn-reset-tutor-filters" title="Limpiar Filtros">
+              <i class="fa-solid fa-arrow-rotate-left"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- Grid de Tutores -->
+        <section class="tutors-grid reveal-on-scroll active" id="tutors-grid">
+          <!-- Renderizado dinámicamente mediante tutoring.js -->
+        </section>
+
+      </main>
+    </div>
+
+    <!-- Modal para Agendar / Contactar Tutor -->
+    <div class="modal-overlay" id="booking-modal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Solicitar Asesoría</h3>
+          <button class="modal-close-btn" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="booking-form">
+          <div class="modal-body">
+            
+            <div class="modal-tutor-profile">
+              <!-- Inyectado dinámicamente -->
+            </div>
+
+            <div class="form-group">
+              <label for="book-course">Selecciona el curso de consulta *</label>
+              <select id="book-course" class="form-control">
+                <!-- Inyectado dinámicamente según especialidades del tutor -->
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="book-date">Fecha propuesta *</label>
+                <input type="date" id="book-date" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label for="book-time">Hora propuesta *</label>
+                <input type="time" id="book-time" class="form-control" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="book-notes">Temas específicos a tratar (opcional)</label>
+              <textarea id="book-notes" class="form-control" rows="3" placeholder="Ej. Solución de ejercicios de matrices, repaso de ecuaciones para la PC2..." style="resize:none;"></textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-primary">
+              <i class="fa-solid fa-paper-plane"></i> Enviar Solicitud por WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="../js/app.js"></script>
+    <script src="../js/tutoring.js"></script>
+    <script src="../js/animations.js"></script>
+  </body>
+</html>

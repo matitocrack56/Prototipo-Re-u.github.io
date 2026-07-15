@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Re-U | Marketplace Universitario</title>
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/marketplace.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+  <body>
+    <div class="app-container" id="app-root">
+      
+      <!-- Menú Lateral (Sidebar) -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <div class="logo-icon">R</div>
+          <h1 class="logo-text">Re-<span>U</span></h1>
+        </div>
+        
+        <nav class="sidebar-nav">
+          <a href="../index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Inicio</span>
+          </a>
+          <a href="./repository.html" class="nav-item">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Repositorio</span>
+          </a>
+          <a href="./marketplace.html" class="nav-item active">
+            <i class="fa-solid fa-store"></i>
+            <span>Marketplace</span>
+          </a>
+          <a href="./tutoring.html" class="nav-item">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>Tutorías</span>
+          </a>
+          <a href="./profile.html" class="nav-item">
+            <i class="fa-solid fa-user"></i>
+            <span>Perfil</span>
+          </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+          <div class="user-profile-summary">
+            <div class="user-avatar-mini">MA</div>
+            <div class="user-info-mini">
+              <span class="user-name">Miguel Alva</span>
+              <span class="user-role">Ing. de Sistemas</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Overlay para responsive móvil -->
+      <div class="sidebar-overlay"></div>
+
+      <!-- Contenido Principal -->
+      <main class="main-content">
+        
+        <!-- Cabecera Superior -->
+        <header class="main-header reveal-on-scroll active">
+          <!-- Hamburguesa móvil -->
+          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir Menú">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          
+          <div class="header-title-area">
+            <h1>Marketplace Universitario</h1>
+            <p>Vende, compra o intercambia artículos estudiantiles directamente con compañeros.</p>
+          </div>
+          
+          <div class="header-actions">
+            <button class="icon-badge-btn" aria-label="Notificaciones">
+              <i class="fa-regular fa-bell"></i>
+            </button>
+          </div>
+        </header>
+
+        <!-- Cabecera del Módulo con Acción Directa -->
+        <div class="module-header reveal-on-scroll active">
+          <div class="module-info">
+            <h2>¿Tienes artículos que ya no usas?</h2>
+            <p>Dale una segunda vida a tus libros, calculadoras o apuntes impresos y recupera tu inversión de forma segura.</p>
+          </div>
+          <a href="./profile.html?action=new-sale" class="btn btn-accent">
+            <i class="fa-solid fa-plus"></i> Publicar un Artículo
+          </a>
+        </div>
+
+        <!-- Filtros y Buscador del Marketplace -->
+        <section class="filter-panel reveal-on-scroll active" style="padding-bottom: 1.25rem;">
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label for="search-product" style="font-size: 0.8rem; font-weight:700; color:var(--gris-oscuro); text-transform:uppercase;">¿Qué estás buscando hoy?</label>
+            <div class="search-input-wrapper">
+              <input type="text" id="search-product" class="form-control" placeholder="Ej. Calculadora científica, Libro cálculo, Uniforme..." />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+
+          <!-- Píldoras de Categorías -->
+          <div class="market-categories">
+            <button class="category-pill active" data-category="all">
+              <i class="fa-solid fa-border-all"></i> Todo
+            </button>
+            <button class="category-pill" data-category="libros">
+              <i class="fa-solid fa-book"></i> Libros
+            </button>
+            <button class="category-pill" data-category="calculadoras">
+              <i class="fa-solid fa-calculator"></i> Calculadoras
+            </button>
+            <button class="category-pill" data-category="laptops">
+              <i class="fa-solid fa-laptop"></i> Laptops
+            </button>
+            <button class="category-pill" data-category="tablets">
+              <i class="fa-solid fa-tablet-screen-button"></i> Tablets
+            </button>
+            <button class="category-pill" data-category="uniformes">
+              <i class="fa-solid fa-shirt"></i> Uniformes
+            </button>
+            <button class="category-pill" data-category="mochilas">
+              <i class="fa-solid fa-bag-shopping"></i> Mochilas
+            </button>
+          </div>
+        </section>
+
+        <!-- Grid de Productos -->
+        <section class="products-grid reveal-on-scroll active" id="products-grid">
+          <!-- Renderizado dinámicamente mediante marketplace.js -->
+        </section>
+
+      </main>
+    </div>
+
+    <!-- Modal de Detalles del Producto -->
+    <div class="modal-overlay" id="product-detail-modal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Detalle del Artículo</h3>
+          <button class="modal-close-btn" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-product-layout">
+            <!-- Inyectado dinámicamente mediante marketplace.js -->
+          </div>
+        </div>
+        <div class="modal-footer" style="background-color: var(--gris-ultra-claro); border-radius: 0 0 var(--radius-lg) var(--radius-lg);">
+          <button class="btn btn-secondary" onclick="document.getElementById('product-detail-modal').classList.remove('active')">Cerrar</button>
+          <button class="btn btn-primary" id="btn-contact-seller">
+            <i class="fa-brands fa-whatsapp"></i> Contactar al Estudiante
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Envío de Mensaje Directo al Vendedor -->
+    <div class="modal-overlay" id="contact-seller-message-modal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Contactar Vendedor</h3>
+          <button class="modal-close-btn" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="contact-seller-form">
+          <div class="modal-body">
+            
+            <div class="modal-tutor-profile">
+              <!-- Inyectado dinámicamente -->
+            </div>
+
+            <div class="form-group">
+              <label for="seller-msg-text">Mensaje inicial de interés</label>
+              <textarea id="seller-msg-text" class="form-control" rows="4" style="resize:none;" required>Hola, estoy interesado en tu artículo publicado en Re-U. ¿Sigue disponible para coordinar la entrega?</textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="seller-msg-phone">Tu número de celular (para WhatsApp) *</label>
+              <input type="tel" id="seller-msg-phone" class="form-control" placeholder="Ej. 987654321" required />
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-accent">
+              <i class="fa-solid fa-paper-plane"></i> Enviar Mensaje Directo
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="../js/app.js"></script>
+    <script src="../js/marketplace.js"></script>
+    <script src="../js/animations.js"></script>
+  </body>
+</html>

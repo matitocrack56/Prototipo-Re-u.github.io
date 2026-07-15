@@ -1,0 +1,295 @@
+/* ==========================================
+   ESTILOS DE REPOSITORIO ACADÉMICO
+   ========================================== */
+
+/* Barra Superior de Repositorio (Título + Subir) */
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: var(--glass-bg);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+}
+
+.module-info h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--negro);
+  margin-bottom: 0.3rem;
+}
+
+.module-info p {
+  color: var(--gris-oscuro);
+  font-size: 0.9rem;
+}
+
+/* Panel de Filtros Académicos */
+.filter-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr) auto;
+  gap: 1.25rem;
+  align-items: flex-end;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gris-oscuro);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: white;
+  border: 1px solid var(--gris-claro);
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  color: var(--negro);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23475569' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.25rem;
+}
+
+.filter-control:focus {
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 3px var(--azul-claro-transparente);
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-input-wrapper i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gris-medio);
+}
+
+.search-input-wrapper input {
+  padding-left: 2.5rem;
+}
+
+.btn-reset-filters {
+  height: 44px;
+  background-color: var(--gris-ultra-claro);
+  border: 1px solid var(--gris-claro);
+  color: var(--gris-oscuro);
+  border-radius: var(--radius-md);
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.btn-reset-filters:hover {
+  background-color: var(--gris-claro);
+  color: var(--negro);
+  transform: rotate(-45deg);
+}
+
+/* Grid de Documentos */
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Tarjeta de Documento */
+.document-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.doc-type-indicator {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.doc-type-examen { background-color: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.doc-type-apunte { background-color: var(--azul-claro-transparente); color: var(--azul-claro); }
+.doc-type-practica { background-color: var(--verde-transparente); color: var(--verde); }
+
+.doc-subject {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--azul);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  max-width: calc(100% - 40px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doc-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--negro);
+  line-height: 1.35;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 2.7rem;
+}
+
+.doc-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gris-ultra-claro);
+  margin-bottom: 1.25rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.7rem;
+  color: var(--gris-medio);
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  margin-bottom: 0.15rem;
+}
+
+.meta-value {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gris-oscuro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doc-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.doc-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.author-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background-color: var(--gris-claro);
+  color: var(--negro);
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--gris-oscuro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-download-doc {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background-color: var(--gris-ultra-claro);
+  color: var(--azul);
+  border: 1px solid var(--gris-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.btn-download-doc:hover {
+  background-color: var(--azul);
+  border-color: var(--azul);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* empty state styling */
+.empty-state-wrapper {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gris-claro);
+}
+
+.empty-state-wrapper i {
+  font-size: 3.5rem;
+  color: var(--gris-claro);
+  margin-bottom: 1.5rem;
+}
+
+.empty-state-wrapper h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--negro);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-wrapper p {
+  color: var(--gris-oscuro);
+  font-size: 0.9rem;
+}
